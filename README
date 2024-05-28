@@ -1,5 +1,10 @@
 install docker
+sudo groupadd docker 
+sudo usermod -aG docker $USER
+newgrp docker
 install kurtosis 
+add autocomplete for kurtosis
+kurtosis analytics disable
 
 1. Build the prof bundle merger (below is the non-sgx way to do it)
 cd builder
@@ -8,6 +13,9 @@ cd ..
 
 2. start up everything using kurtosis
 first ensure that the prof relay code is located at ethereum-package/prof-relay  (i.e., inside the ethereum-package)
+
+3. docker build . -t prof-project/builder-prof-merger
+
 cd ethereum-package
 kurtosis run --enclave prof ./ --args-file network_params.yaml
 
