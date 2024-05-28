@@ -1,0 +1,14 @@
+install docker
+install kurtosis 
+
+1. Build the prof bundle merger (below is the non-sgx way to do it)
+cd builder
+docker build . -t prof-project/builder-prof-merger
+cd ..
+
+2. start up everything using kurtosis
+first ensure that the prof relay code is located at ethereum-package/prof-relay  (i.e., inside the ethereum-package)
+cd ethereum-package
+kurtosis run --enclave prof ./ --args-file network_params.yaml
+
+NOTE : use these exact names `builder-prof-merger` and `prof-relay` as that's what the above network params yaml looks for.
