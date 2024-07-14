@@ -10,24 +10,30 @@
 		`sudo apt update`
 		`sudo apt install kurtosis-cli=0.87.2 -V`
 	add autocomplete for kurtosis (optional)
-		`https://docs.kurtosis.com/guides/adding-command-line-completion`
-		kurtosis analytics disable
+		https://docs.kurtosis.com/guides/adding-command-line-completion
+		`kurtosis analytics disable`
 
         
 3. Build the prof bundle merger (below is the non-sgx way to do it)
-	cd builder
-	docker build . -t prof-project/builder-prof-merger
-	cd ..
+	`cd builder`
+	`docker build . -t prof-project/builder-prof-merger`
+	`cd ..`
 
 first ensure that the prof relay code is located at ethereum-package/prof-relay  (i.e., inside the ethereum-package)
+the dir structure should look like this:
+	main dir
+	- - ethereum-package/
+	- - - - prof-relay/
+	- - builder/
 
 4. start up everything using kurtosis
-	cd ethereum-package
-	kurtosis run --enclave prof ./ --args-file network_params.yaml
+	`cd ethereum-package`
+	`kurtosis run --enclave prof ./ --args-file network_params.yaml`
 
 5. check the logs
-	 kurtosis service logs prof mev-relay-api
+	`kurtosis service logs prof mev-relay-api`
 
 6. kill the enclave 
-	kurtosis enclave rm -f prof
+	`kurtosis enclave rm -f prof`
+	
 NOTE : use these exact names `builder-prof-merger` and `prof-relay` as that's what the above network params yaml looks for.
