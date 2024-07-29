@@ -19,12 +19,18 @@
 	`docker build . -t prof-project/builder-prof-merger`
 	`cd ..`
 
+4. Build the prof sequeuncer 
+	`cd prof-sequeuncer`
+	`docker build . -t prof-project/prof-sequeuncer`
+	`cd ..`
+
 first ensure that the prof relay code is located at ethereum-package/prof-relay  (i.e., inside the ethereum-package)
 the dir structure should look like this:
 	main dir
 	- - ethereum-package/
 	- - - - prof-relay/
 	- - builder/
+	- - prof-sequeuncer/
 
 4. start up everything using kurtosis
 	`cd ethereum-package`
@@ -36,4 +42,4 @@ the dir structure should look like this:
 6. kill the enclave 
 	`kurtosis enclave rm -f prof`
 	
-NOTE : use these exact names `builder-prof-merger` and `prof-relay` as that's what the above network params yaml looks for.
+NOTE : use these exact names `builder-prof-merger`, `prof-sequeuncer` and `prof-relay` as that's what the above network params yaml looks for.
