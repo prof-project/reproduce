@@ -19,7 +19,7 @@
 	`docker build . -t prof-project/builder-prof-merger`
 	`cd ..`
 
-4. Build the prof sequencer 
+4. Build the prof sequencer
 	`cd prof-sequencer`
 	`docker build . -t prof-project/prof-sequencer`
 	`cd ..`
@@ -27,10 +27,10 @@
 first ensure that the prof relay code is located at ethereum-package/prof-relay  (i.e., inside the ethereum-package)
 the dir structure should look like this:
 	main dir
-	- - ethereum-package/
-	- - - - prof-relay/
-	- - builder/
-	- - prof-sequencer/
+	- - ethereum-package/	(0843a84cbd3541a0c0fd28fe39d435d991929ead) 
+	- - - - prof-relay/ 	(b76cc18727b8049f62871d9c4d7f9f273e5a7941)
+	- - builder/		(21ceda269c9d9da8ec39faea0f63efa29d8d3ebe)
+	- - prof-sequencer/	(13ad0a12c69cba61b29fabe97582fecc2ae8e35f)
 
 4. start up everything using kurtosis
 	`cd ethereum-package`
